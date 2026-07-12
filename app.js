@@ -40,17 +40,16 @@ function addTask(title, description, priority) {
     if (typeof title !== 'string' || typeof description !== 'string' || typeof priority !== 'number') {
         throw new Error("Invalid input types, title and description should be strings, priority should be a number.");
     }
+
     const newTask = new Task(title, description, priority);
     taskList.push(newTask);
     taskCounter++;
     return newTask;
 }
 
-// Function with incorrect loop
-function displayAllTasks() {
-    // Wrong loop - should use for-of
-    for (let i = 0; i <= taskList.length; i++) {  // Off-by-one error
-        console.log(taskList[i].title);
+export function displayAllTasks() {
+    for (const task of taskList) {
+        console.log(task.title);
     }
 }
 
@@ -58,31 +57,25 @@ function findTaskByTitle(title) {
     if (typeof title !== 'string') {
         throw new Error("Title must be a string.")
     }
-    // Wrong loop construct
-    let i = 0;
-    while (i < taskList.length) {
-        if (taskList[i].title == title) {  // Should use ===
-            return taskList[i];
+
+    for (const task of taskList) {
+        if (task.title === title) {
+            return task;
         }
-        // Missing: i++
     }
     return undefined;
 }
 
-// Function with type checking issues
-function updateTaskPriority(taskId, newPriority) {
-    if (typeof taskId !== 'number' || typeof newPriority !== 'number') {
-        throw new Error("Task ID and new priority must be numbers.");
+export function updateTaskPriority(taskId, newPriority) {
+    if (typeof taskId !== "number") {
+        throw new Error("Invalid task ID");
     }
-    // Missing: null/undefined validation
 
-    for (let i = 0; i < taskList.length; i++) {
-        if (taskList[i].id = taskId) {  // Wrong operator (= instead of ===)
-            taskList[i].priority = newPriority;
-            return true;
-        }
-    }
-    return false;
+    const task = taskList.find(t => t.id === taskId);
+    if (!task) return false;
+
+    task.priority = newPriority;
+    return true;
 }
 
 // Function that should use destructuring but doesn't

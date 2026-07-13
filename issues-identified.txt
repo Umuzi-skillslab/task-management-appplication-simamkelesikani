@@ -1,0 +1,33 @@
+# Issues Identified
+
+## Variables & Operators
+
+The starter code contained inconsistent variable declarations and limited input validation. I reviewed variable scoping to ensure the correct use of `const` and `let`, added parameter validation using `typeof` checks, and verified that strict equality operators (`===`) were used throughout the application.
+
+## Control Flow
+
+Several sections required improvements to control flow. Loop structures and conditional statements were reviewed to ensure correct execution, and additional validation was added to prevent invalid data from being processed. `for...of` loops were used where appropriate to improve readability.
+
+## Functions
+
+Some functions lacked sufficient validation and error handling. I added parameter validation, improved function responsibilities, corrected recursive logic by ensuring a proper base case, and enhanced reusable functions using modern JavaScript array methods such as `map()`, `filter()`, `find()`, and `reduce()`.
+
+## Object-Oriented Programming
+
+The `Task` and `SubTask` classes were reviewed and completed. Inheritance was corrected using `super()`, the `toggleCompletion()` method was implemented, and additional functionality was added to the `TaskManager` object to improve task management.
+
+## Modern JavaScript
+
+The project was updated to use modern ES6+ features. Template literals replaced string concatenation, object destructuring simplified property access, spread syntax was used for array operations, and the project was organized using ES6 modules with appropriate imports and exports.
+
+## DOM Manipulation
+
+DOM selectors were corrected, null checks were added before manipulating elements, event delegation was implemented, and event listeners were added to handle user interaction. The application initialization was updated to use `DOMContentLoaded`.
+
+## Storage & Testing
+
+JSON serialization and parsing were implemented to support local storage. Jest tests were expanded to cover task creation, inheritance, array operations, recursion, error handling, and edge cases while ensuring the application state was reset before each test.
+
+## Error Handling & Code Quality
+
+Additional `try...catch` blocks and parameter validation were implemented to improve reliability. Code formatting, naming conventions, and overall readability were improved, and redundant code was removed to create a cleaner and more maintainable codebase.

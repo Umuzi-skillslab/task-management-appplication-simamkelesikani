@@ -78,45 +78,27 @@ export function updateTaskPriority(taskId, newPriority) {
     return true;
 }
 
-// Function that should use destructuring but doesn't
-function getTaskDetails(task) {
-    // Should destructure task properties
-    let title = task.title;
-    let description = task.description;
-    let priority = task.priority;
-    let completed = task.completed;
+export function getTaskDetails(task) {
+    const { title, description, priority, completed } = task;
 
-    return {
-        title: title,
-        description: description,
-        priority: priority,
-        completed: completed
-    };
+    return { title, description, priority, completed };
 }
 
-// Function missing spread/rest operators
-function mergeTasks(list1, list2) {
-    // Should use spread operator
-    let merged = [];
-    for (let i = 0; i < list1.length; i++) {
-        merged.push(list1[i]);
-    }
-    for (let i = 0; i < list2.length; i++) {
-        merged.push(list2[i]);
-    }
-    return merged;
+export function mergeTasks(list1, list2) {
+    return [...list1, ...list2];
 }
 
-// Recursive function with error
-function countCompletedTasks(tasks, index) {
-    // Missing: base case check
-    // Missing: null/undefined check
-
-    if (tasks[index].completed) {
-        return 1 + countCompletedTasks(tasks, index + 1);
-    } else {
-        return countCompletedTasks(tasks, index + 1);
+export function countCompletedTasks(tasks, index = 0) {
+    if (!Array.isArray(tasks)) {
+        throw new Error("Tasks must be an array");
     }
+
+    if (index >= tasks.length) {
+        return 0; // BASE CASE
+    }
+
+    return (tasks[index].completed ? 1 : 0) +
+        countCompletedTasks(tasks, index + 1);
 }
 
 // Function with Math object issues

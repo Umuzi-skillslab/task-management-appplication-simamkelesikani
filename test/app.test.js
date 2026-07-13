@@ -11,7 +11,7 @@ import {
     getHighPriorityTasks,
     countCompletedTasks,
     taskList
-} from '../src/app.js';
+} from 'task-management-app/src/app.js';
 
 describe('Task Class', () => {
     test('should create a task', () => {

@@ -1,60 +1,176 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=24216029&assignment_repo_type=AssignmentRepo)
-# Task Manager - JavaScript Starter Code
+# Task Management System
 
-This is the starter codebase for your JavaScript task management application. The code is approximately 70% complete but contains errors, omissions, and areas that need significant improvement.
+## Project Description
 
-## What's Included
+The Task Management System is a JavaScript application that allows users to create, manage, and organize tasks. The project demonstrates core JavaScript concepts including object-oriented programming, ES6 modules, DOM manipulation, recursion, array methods, local storage, and automated testing with Jest.
 
-- `app.js` - Core application logic (incomplete with errors)
-- `dom.js` - DOM manipulation code (incomplete with errors)
-- `index.html` - HTML structure (incomplete)
-- `app.test.js` - Jest tests (incomplete)
-- `package.json` - Project configuration
+This project was developed as a mock capstone to practice software development skills and simulate a real-world application.
 
-## Errors and Omissions
+---
 
-The starter code contains intentional errors and missing features across all JavaScript topics including:
+## Features
 
-- Variable scoping issues (var vs let vs const)
-- Missing error handling (try-catch blocks)
-- Incorrect operators and comparisons
-- Loop errors (for, while, for-of)
-- Missing array and object destructuring
-- No spread/rest operators
-- Missing template literals
-- Class and inheritance issues
-- Missing functional programming approaches
-- DOM selector errors
-- Event handling problems
-- Missing JSON operations
-- Incomplete Jest tests
-- Missing module exports/imports
+* Add new tasks
+* Display all tasks
+* Toggle task completion
+* Update task priority
+* Search for tasks by title
+* Merge multiple task lists
+* Filter high-priority tasks
+* Calculate average task priority
+* Count completed tasks using recursion
+* Save tasks to Local Storage
+* Load tasks from Local Storage
+* Automated unit testing with Jest
+* Modular JavaScript architecture
 
-## Your Task
+---
 
-1. Review all code files carefully
-2. Identify and fix all errors
-3. Complete all missing requirements
-4. Add proper error handling
-5. Implement modern JavaScript features
-6. Write comprehensive tests
-7. Ensure code follows best practices
+## Technologies Used
 
-## Getting Started
+* HTML5
+* CSS3
+* JavaScript (ES6+)
+* ES Modules
+* DOM Manipulation
+* Local Storage API
+* Jest
+* Git & GitHub
 
-1. Install dependencies: `npm install`
-2. Review all JavaScript files
-3. Run tests: `npm test` (they will fail initially)
-4. Fix errors and complete missing features
-5. Re-run tests until all pass
+---
 
-## Testing
+## Project Structure
 
-Run Jest tests with:
+```text
+task-manager/
+│
+├── src/
+│   ├── app.js
+│   ├── dom.js
+│   └── utils.js
+│
+├── tests/
+│   └── app.test.js
+│
+├── index.html
+├── styles.css
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
 ```
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+2. Navigate into the project folder:
+
+```bash
+cd task-manager
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## Running the Application
+
+Open the project using a local development server.
+
+If using Live Server in Visual Studio Code:
+
+1. Open the project folder.
+2. Right-click `index.html`.
+3. Select **Open with Live Server**.
+
+Alternatively, use:
+
+```bash
+npm start
+```
+
+(if configured in `package.json`).
+
+---
+
+## Running Tests
+
+Run all Jest tests:
+
+```bash
 npm test
 ```
 
-Initially, tests will fail or be incomplete. Fix the code and add missing tests.
+or
 
-Good luck!
+```bash
+npx jest
+```
+
+To generate test coverage:
+
+```bash
+npx jest --coverage
+```
+
+---
+
+## Core JavaScript Concepts Demonstrated
+
+* Classes and Objects
+* Inheritance
+* Constructors
+* Encapsulation
+* ES6 Modules
+* Arrow Functions
+* Higher-Order Functions
+* Array Methods (`map`, `filter`, `find`, `reduce`)
+* Destructuring
+* Spread Operator
+* Recursion
+* Event Handling
+* DOM Manipulation
+* Error Handling
+* Local Storage
+* Unit Testing with Jest
+
+---
+
+## Future Improvements
+
+* Edit existing tasks
+* Delete tasks from the interface
+* Task categories
+* Due dates
+* Task sorting
+* Drag-and-drop task organization
+* Dark mode
+* Search and filtering interface
+* Persistent statistics dashboard
+* Responsive mobile design improvements
+
+---
+
+## Lessons Learned
+
+This project strengthened my understanding of modern JavaScript development, particularly object-oriented programming, modular code organization, DOM manipulation, recursion, local storage, and writing unit tests with Jest. It also reinforced the importance of validation, debugging, and writing maintainable code.
+
+---
+
+## Author
+
+**Simamkele Sikani**
+
+2026

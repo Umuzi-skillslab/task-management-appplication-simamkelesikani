@@ -158,7 +158,7 @@ npm install
 2. Start the project using your preferred local server.
 
 ## Running the Tests
->>>>>>> c9e415c1c259fe1ed77472852f97b92b05726225
+
 
 ```bash
 npm test
@@ -228,4 +228,4 @@ Include the following screenshots in the `screenshots` folder:
 ## Reflection
 
 The most challenging aspects of the project were debugging the existing code, identifying logical errors, implementing proper validation, and ensuring that all JavaScript requirements were satisfied. Completing the project strengthened my understanding of modern JavaScript, object-oriented programming, functional programming, DOM manipulation, testing, and debugging practices.
->>>>>>> c9e415c1c259fe1ed77472852f97b92b05726225
+

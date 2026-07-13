@@ -102,27 +102,23 @@ export function countCompletedTasks(tasks, index = 0) {
 }
 
 // Function with Math object issues
-function calculateAveragePriority() {
-    let total = 0;
-    // Missing: check for empty array
-    for (let i = 0; i < taskList.length; i++) {
-        total = total + taskList[i].priority;
-    }
-    // Should use Math.round or toFixed
-    return total / taskList.length;
+export function calculateAveragePriority() {
+    if (taskList.length === 0) return 0;
+
+    const total = taskList.reduce((sum, task) => sum + task.priority, 0);
+    return Math.round(total / taskList.length);
 }
 
-// Filter function with errors
-function getHighPriorityTasks(minPriority) {
-    let highPriority = [];
-    // Should use array methods (filter)
-    for (let i = 0; i < taskList.length; i++) {
-        if (taskList[i].priority > minPriority) {
-            highPriority.push(taskList[i]);
-        }
-    }
-    return highPriority;
+export function getHighPriorityTasks(minPriority) {
+    return taskList.filter(task => task.priority > minPriority);
 }
+
+export function applyToTasks(callback) {
+    return taskList.map(callback);
+}
+
+
+
 
 // Object with missing methods
 let TaskManager = {

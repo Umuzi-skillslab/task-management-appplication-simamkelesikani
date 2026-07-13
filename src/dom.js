@@ -9,14 +9,9 @@ function escapeHtml(str) {
 function setupEventListeners() {
     const form = document.querySelector("#task-form");
 
-    // Only attach ONE listener for adding a task.
-    // If the add button is inside the form (type="submit"), the form's
-    // submit event already fires on click — attaching both caused
-    // handleAddTask to run twice per click (duplicate tasks).
     if (form) {
         form.addEventListener("submit", handleAddTask);
     } else {
-        // Fallback only if there's no form wrapping the button.
         const addButton = document.querySelector(".add-task-btn");
         if (addButton) {
             addButton.addEventListener("click", handleAddTask);
@@ -81,6 +76,18 @@ function displayTasks() {
             `
         );
     });
+    updateStatistics();
+}
+
+function updateStatistics() {
+    const totalEl = document.getElementById("total-tasks");
+    const completedEl = document.getElementById("completed-tasks");
+    if (totalEl) {
+        totalEl.textContent = taskList.length;
+    }
+    if (completedEl) {
+        completedEl.textContent = taskList.filter(task => task.completed).length;
+    }
 }
 
 function handleTaskClick(event) {

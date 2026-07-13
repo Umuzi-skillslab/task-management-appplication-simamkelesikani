@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <div id="app">
         <h1>Task Management System</h1>
 
@@ -49,6 +50,53 @@
     </div>
 
     <script type="module" src="./src/dom.js"></script>
+=======
+    <main class="container">
+        <h1>Task Management System</h1>
+
+        <div class="add-task-section">
+            <h2>Add New Task</h2>
+            <form id="task-form">
+                <label for="title">Task Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Task Title"
+                    required
+                >
+
+                <label for="description">Description</label>
+                <textarea
+                    id="description"
+                    placeholder="Description"
+                ></textarea>
+
+                <label for="priority">Priority</label>
+                <input
+                    type="number"
+                    id="priority"
+                    placeholder="Priority (1-5)"
+                    min="1"
+                    max="5"
+                >
+
+                <button type="submit" class="add-task-btn">Add Task</button>
+            </form>
+        </div>
+
+        <div class="task-list" id="task-list">
+            <!-- Tasks will be displayed here -->
+        </div>
+
+        <div class="statistics">
+            <h2>Statistics</h2>
+            <p>Total Tasks: <span id="total-tasks">0</span></p>
+            <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+        </div>
+    </main>
+
+    <script type="module" src="dom.js"></script>
+>>>>>>> c9e415c1c259fe1ed77472852f97b92b05726225
 </body>
 
 </html>

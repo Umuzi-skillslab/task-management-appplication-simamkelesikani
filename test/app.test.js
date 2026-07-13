@@ -193,8 +193,4 @@ describe('Error Handling', () => {
     });
 });
 
-// Note: taskCounter in app.js is not reset between tests, so task IDs are
-// not guaranteed to start at 0/1 in any given test. Tests here intentionally
-// avoid asserting exact ID values for that reason — assert on returned
-// objects/titles instead, or add a resetCounter() export if exact IDs are
-// ever needed for testing.
+

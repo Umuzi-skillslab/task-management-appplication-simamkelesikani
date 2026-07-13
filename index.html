@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager</title>
+    <title>Task Management System</title>
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
+    <div id="app">
         <h1>Task Management System</h1>
-        
-        <div class="add-task-section">
+
+        <section class="task-form">
             <h2>Add New Task</h2>
-            <!-- Form with issues -->
-            <input type="text" id="title" placeholder="Task Title">
-            <input type="text" id="description" placeholder="Description">
-            <!-- Missing: priority input -->
-            <button class="add-task-btn">Add Task</button>
-        </div>
-        
-        <div class="task-list" id="task-list">
-            <!-- Tasks will be displayed here -->
-        </div>
-        
-        <div class="statistics">
-            <!-- Missing: statistics display -->
-        </div>
+
+            <form id="task-form">
+                <input type="text" id="title" placeholder="Task Title" required>
+
+                <input type="text" id="description" placeholder="Task Description">
+
+                <input type="number" id="priority" placeholder="Priority (1-5)" min="1" max="5" value="1">
+
+                <button type="submit" class="add-task-btn">
+                    Add Task
+                </button>
+            </form>
+        </section>
+
+        <section id="task-list">
+            <!-- Tasks will be rendered here -->
+        </section>
+
+        <section class="stats">
+            <h2>Statistics</h2>
+
+            <p>
+                Total Tasks:
+                <span id="total-tasks">0</span>
+            </p>
+
+            <p>
+                Completed Tasks:
+                <span id="completed-tasks">0</span>
+            </p>
+        </section>
     </div>
-    
-    <!-- Scripts loaded in wrong order -->
-    <script src="dom.js"></script>
-    <script src="app.js"></script>
-    <!-- Missing: module script -->
+
+    <script type="module" src="./src/dom.js"></script>
 </body>
+
 </html>

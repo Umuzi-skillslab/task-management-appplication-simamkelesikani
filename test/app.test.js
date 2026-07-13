@@ -48,7 +48,7 @@ describe('SubTask Class', () => {
 describe('Task Functions', () => {
 
     beforeEach(() => {
-        taskList.length = 0; // reset state
+        taskList.length = 0;
     });
 
     test('should add a task to taskList', () => {

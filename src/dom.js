@@ -1,67 +1,92 @@
-// DOM Manipulation - Starter Code with Errors
+import { addTask, taskList } from './app.js';
 
-// Missing: proper DOM selectors
 function setupEventListeners() {
-    // Wrong selector method
-    var addButton = document.getElementById(".add-task-btn");  // Wrong - mixing ID and class
-    var taskInput = document.querySelector("task-input");  // Missing #
-    
-    // Missing: null checks before adding listeners
-    addButton.addEventListener("click", handleAddTask);
-    
-    // Missing: other event listeners for form submission, etc.
-}
+    const addButton = document.querySelector(".add-task-btn");
+    const form = document.querySelector("#task-form");
 
-// Function with DOM manipulation errors
-function handleAddTask() {
-    var titleInput = document.getElementById("title");
-    var descInput = document.getElementById("description");
-    
-    // No validation
-    // Should use event.preventDefault() if form
-    
-    var title = titleInput.value;
-    var description = descInput.value;
-    
-    // Missing: priority input
-    
-    addTask(title, description, 1);
-    displayTasks();
-    
-    // Missing: clear inputs after adding
-}
+    if (addButton) {
+        addButton.addEventListener("click", handleAddTask);
+    }
 
-// Function that should use better selectors
-function displayTasks() {
-    var container = document.getElementById("task-list");
-    
-    // Should clear existing content first
-    // Missing: null check
-    
-    // Inefficient - should use template literals and insertAdjacentHTML
-    for (var i = 0; i < taskList.length; i++) {
-        var div = document.createElement("div");
-        div.innerHTML = "<h3>" + taskList[i].title + "</h3>";
-        div.innerHTML = div.innerHTML + "<p>" + taskList[i].description + "</p>";
-        container.appendChild(div);
-        
-        // Missing: task ID, completion status, event handlers for delete/complete
+    if (form) {
+        form.addEventListener("submit", handleAddTask);
+    }
+
+    const container = document.getElementById("task-list");
+    if (container) {
+
+        container.addEventListener("click", handleTaskClick);
     }
 }
 
-// Function with event handling issues
-function handleTaskClick(event) {
-    // Missing: event.target check
-    // Missing: proper event delegation
-    
-    var taskId = event.target.id;  // Wrong way to get task ID
-    
-    // Should toggle task completion
-    console.log("Task clicked: " + taskId);
+function handleAddTask(event) {
+    event.preventDefault();
+
+    const titleInput = document.getElementById("title");
+    const descInput = document.getElementById("description");
+    const priorityInput = document.getElementById("priority");
+
+    if (!titleInput || !descInput) return;
+
+    const title = titleInput.value.trim();
+    const description = descInput.value.trim();
+    const priority = Number(priorityInput?.value) || 1;
+
+    if (!title) {
+        alert("Title is required");
+        return;
+    }
+
+    addTask(title, description, priority);
+    displayTasks();
+
+
+    titleInput.value = "";
+    descInput.value = "";
+    if (priorityInput) priorityInput.value = "";
 }
 
-// Missing: JSON conversion functions
-// Missing: functions to save/load tasks from localStorage
 
-// Initialize (wrong placement - should use DOMContentLoaded)
-setupEventListeners();
+function displayTasks() {
+    const container = document.getElementById("task-list");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    taskList.forEach(task => {
+        container.insertAdjacentHTML(
+            "beforeend",
+            `
+            <div class="task-item" data-id="${task.id}">
+                <h3>${task.title}</h3>
+                <p>${task.description}</p>
+                <span>Priority: ${task.priority}</span>
+                <button class="toggle-btn">Toggle</button>
+            </div>
+            `
+        );
+    });
+}
+
+
+function handleTaskClick(event) {
+    const target = event.target;
+
+    if (!target.classList.contains("toggle-btn")) return;
+
+    const taskElement = target.closest(".task-item");
+    const taskId = Number(taskElement.dataset.id);
+
+    const task = taskList.find(t => t.id === taskId);
+
+    if (task) {
+        task.toggleCompletion();
+        displayTasks();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setupEventListeners();
+    displayTasks();
+});

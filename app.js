@@ -94,14 +94,13 @@ export function countCompletedTasks(tasks, index = 0) {
     }
 
     if (index >= tasks.length) {
-        return 0; // BASE CASE
+        return 0;
     }
 
     return (tasks[index].completed ? 1 : 0) +
         countCompletedTasks(tasks, index + 1);
 }
 
-// Function with Math object issues
 export function calculateAveragePriority() {
     if (taskList.length === 0) return 0;
 
@@ -117,20 +116,18 @@ export function applyToTasks(callback) {
     return taskList.map(callback);
 }
 
+export const TaskManager = {
+    getTotalTasks() {
+        return taskList.length;
+    },
 
+    getCompletedTasks() {
+        return taskList.filter(task => task.completed);
+    },
 
-
-// Object with missing methods
-let TaskManager = {
-    tasks: taskList,
-
-    // Missing: method to add task using functional approach
-    // Missing: method using array methods (map, filter, reduce)
-
-    getTotalTasks: function () {
-        return this.tasks.length;
+    deleteTask(id) {
+        return taskList.filter(task => task.id !== id);
     }
 };
 
-// Export issues - should be a module
-// Missing: proper module exports
+export { taskList };
